@@ -6,7 +6,7 @@
     "dev": "vite",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "lint": "eslint src --ext .ts,.js,.svelte",
-    "format": "prettier --write ./src/**/*.{js,svelte,html,ts}",
+    "format": "prettier --no-error-on-unmatched-pattern --write ./src/**/*.{js,svelte,html,ts}",
     "test": "jest"
   },
   "devDependencies": {

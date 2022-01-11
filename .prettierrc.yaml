@@ -1,0 +1,7 @@
+trailingComma: "all"
+svelteSortOrder: "options-styles-scripts-markup"
+svelteStrictMode: false
+svelteIndentScriptAndStyle: true
+svelteAllowShorthand: false
+plugins: 
+  - "prettier-plugin-svelte"

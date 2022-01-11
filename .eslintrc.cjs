@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
-  extends: '@dooboo/eslint-config-svelte',
+  extends: "@dooboo/eslint-config-svelte",
   rules: {
-    '@typescript-eslint/no-unsafe-call': 'off',
-  },
+    "@typescript-eslint/no-unsafe-call": "off",
+  }
 };
