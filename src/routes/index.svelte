@@ -1,15 +1,15 @@
 <script lang="ts">
-    import Board from "../api/board";
+  import Board from "../api/board";
 
-    const promise = Board.fetchAll();
+  const promise = Board.fetchAll();
 </script>
 
 {#await promise}
-    <span>Loading</span>
-{:then boards} 
-    {#each boards as board}
-        <p>{board.description}</p>
-    {/each}
+  <span>Loading</span>
+{:then boards}
+  {#each boards as board}
+    <p>{board.description}</p>
+  {/each}
 {:catch error}
-    <span>{error.message}</span>
+  <span>{error.message}</span>
 {/await}

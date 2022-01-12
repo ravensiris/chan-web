@@ -29,9 +29,9 @@ export default class Board implements BoardInterface {
     return new Board(response.data);
   }
 
-  static async fetchAll(): Promise<Board[]>{
+  static async fetchAll(): Promise<Board[]> {
     const response = await axios.get<BoardInterface[]>(
-      'https://chan-api-ri.herokuapp.com/boards',
+      "https://chan-api-ri.herokuapp.com/boards",
     );
 
     const data = response.data;
