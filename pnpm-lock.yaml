@@ -12,6 +12,7 @@ specifiers:
   npm-run-all: ^4.1.5
   prettier: ^2.5.1
   prettier-plugin-svelte: ^2.5.1
+  redaxios: ^0.4.1
   sass: ^1.47.0
   svelte: ^3.45.0
   svelte-i18n: ^3.3.13
@@ -23,6 +24,7 @@ specifiers:
   vite: ^2.7.10
 
 dependencies:
+  redaxios: 0.4.1
   svelte-i18n: 3.3.13_svelte@3.45.0
 
 devDependencies:
@@ -3775,6 +3777,10 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
+
+  /redaxios/0.4.1:
+    resolution: {integrity: sha512-+Jhh1j8/H0KBro+Hih/MrDEJ1PICaU10JA6iu5b3+uvgRI+5n2M7qpMNXq7eC/0fspP0tTq49ONXlGWFdRoNLg==}
+    dev: false
 
   /regenerator-runtime/0.13.9:
     resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}

@@ -3,5 +3,6 @@ module.exports = {
   extends: "@dooboo/eslint-config-svelte",
   rules: {
     "@typescript-eslint/no-unsafe-call": "off",
+    "object-curly-spacing": "off",
   }
 };
