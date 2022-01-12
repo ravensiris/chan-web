@@ -5,23 +5,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/ravensiris/chan">
+  <a href="https://github.com/ravensiris/chan-web">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Chan</h3>
+<h3 align="center">Chan Web</h3>
 
   <p align="center">
-    Imageboard API built on top of Laravel Lumen.
+    <a href="https://github.com/ravensiris/chan">Chan</a> frontend.
     <br />
-    <a href="https://github.com/ravensiris/chan"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/ravensiris/chan-web"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/ravensiris/chan">View Demo</a>
+    <a href="https://github.com/ravensiris/chan-web">View Demo</a>
     ·
-    <a href="https://github.com/ravensiris/chan/issues">Report Bug</a>
+    <a href="https://github.com/ravensiris/chan-web/issues">Report Bug</a>
     ·
-    <a href="https://github.com/ravensiris/chan/issues">Request Feature</a>
+    <a href="https://github.com/ravensiris/chan-web/issues">Request Feature</a>
   </p>
 </div>
 
@@ -58,7 +58,11 @@
 
 ### Built With
 
-* [Laravel Lumen](https://lumen.laravel.com/)
+* [Svelte](https://svelte.dev/)
+* [Typescript](https://www.typescriptlang.org/)
+* [Routify3](https://v3.routify.dev/)
+* [Vite](https://vitejs.dev/)
+* [Sass](https://sass-lang.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -70,50 +74,43 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-Follow [Lumen Guide](https://lumen.laravel.com/docs/8.x) and install whatever appropriate for your system.
+A node package manager.
+[pNPm](https://pnpm.io/) recommended.
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/ravensiris/chan.git
+   git clone https://github.com/ravensiris/chan-web.git
    ```
-2. Setup your environment
-Follow guide [HERE](https://lumen.laravel.com/docs/8.x/configuration#environment-configuration).
-3. Setup your database
-Follow guide [HERE](https://lumen.laravel.com/docs/8.x/database#configuration)
-
-Remember to create a database with the same name as in `DB_DATABASE` variable in your `.env` file.
-
-Example in postgres:
-```sh
-createdb chan
-```
-Where `chan` is value of your `DB_DATABASE`.
-
-You can also connect to the database using:
-```sh
-psql -d chan
-```
-Might be useful if you need to tweak stuff like encoding or limits.
-4. Run migrations
- ```sh
- php artisan migrate:fresh
- ```
-
+2. Install packages
+   ```sh
+   cd chan-web
+   pnpm install # or just pnpm i
+   ```
+ 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 ### Run
 ```sh
-php -S localhost:8000 -t public
+pnpm dev
 ```
 ### Run tests
-You need to have `phpunit` installed on your system.
-Follow guide [HERE](https://phpunit.readthedocs.io/en/9.5/installation.html) if you don't have it already.
+Runs [JEST](https://jestjs.io/)
 ```sh
-phpunit
+pnpm test
+```
+### Run linting
+Runs [ESLint](https://eslint.org/)
+```sh
+pnpm lint
+```
+### Run fomatter
+Runs [Prettier](https://prettier.io/)
+```sh
+pnpm lint
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -123,27 +120,15 @@ phpunit
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Boards
-   - [x] List
-   - [x] View
+- [ ] About page
+- [ ] Boards
+   - [ ] Search and select a board
+   - [ ] View threads inside a board
 - [ ] Threads
-   - [x] List
-   - [x] View
-   - [ ] Create
-- [ ] Replies
-    - [ ] Create
-    - [ ] List
-    - [ ] View
-- [ ] Attachments
-    - [ ] Attach image to reply
-- [ ] Limits
-    - [ ] Limit maximum threads
-    - [ ] Limit maximum frequency for creating new threads
-    - [ ] Limit replies per thread
-    - [ ] Limit maximum replies
-    - [ ] Limit max image size
+   - [ ] Create threads
+   - [ ] Reply to threads
 
-See the [open issues](https://github.com/ravensiris/chan/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/ravensiris/chan-web/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -179,7 +164,7 @@ Distributed under the GPLv3 License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [https://github.com/ravensiris/chan](https://github.com/ravensiris/chan)
+Project Link: [https://github.com/ravensiris/chan-web](https://github.com/ravensiris/chan-web)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -189,7 +174,6 @@ Project Link: [https://github.com/ravensiris/chan](https://github.com/ravensiris
 ## Acknowledgments
 
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
-* [Lumen Generator](https://github.com/flipboxstudio/lumen-generator)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -197,6 +181,5 @@ Project Link: [https://github.com/ravensiris/chan](https://github.com/ravensiris
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[license-shield]: https://img.shields.io/github/license/ravensiris/chan.svg?style=for-the-badge
-[license-url]: https://github.com/ravensiris/chan/blob/master/COPYING
-
+[license-shield]: https://img.shields.io/github/license/ravensiris/chan-web.svg?style=for-the-badge
+[license-url]: https://github.com/ravensiris/chan-web/blob/master/COPYING
