@@ -7,33 +7,29 @@
     max-width: 1200px
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))
 
-  .center-h
+  .boards-wrapper
+    margin-top: .5em
     width: 100%
     display: flex
     justify-content: center
     overflow-y: auto
     
-  .center-v
-    height: 100%
-    display: flex
-    flex-direction: column-reverse
-    justify-content: space-between
-
-
   input
+    position: fixed
+    bottom: 0
     font-size: 1.5rem
     padding: .5em
     max-width: 800px
-    width: 100%
+    width: calc(100% - 1em)
     box-sizing: border-box
     align-self: center
-    margin: .5em
-    border: none
+    margin: .5em 0
+    border: .1em solid transparent
     background-color: #EAE4E9
     border-radius: .3em
-
-  .wrapper
-    height: 100vh
+    outline: none
+    &:focus
+      border-color: darken(#CDDAFD, 30%)
 
   .bottom
     display: flex
@@ -70,35 +66,33 @@
     search = (e.target as HTMLInputElement).value;
   }
 
-  const handleSearch = debounce(_search, 200);
+  function _toggle_fullscreen(){
+    if (window.innerHeight < 300){
+      document.documentElement.requestFullscreen().then(() => {
+        is_fullscreen = true;
+      }).catch(()=> {is_fullscreen=false;});
+    }else if(is_fullscreen){
+      document.exitFullscreen();
+    }
+  }
+
+  const handle_search = debounce(_search, 200);
+  let is_fullscreen = false;
+  const handle_search_click = debounce(_toggle_fullscreen, 200);
 </script>
 
-<div class="wrapper">
-  <div class="center-v">
-    <div class="bottom">
-      <input type="text" on:input={handleSearch} placeholder="Search..." />
+<div class="boards-wrapper">
+  {#await filtered}
+    <p>Loading</p>
+  {:then boards}
+    <div class="boards">
+      {#each boards as board}
+        <BoardSelect board={board} />
+      {/each}
     </div>
-    <div class="center-h">
-      {#await filtered}
-        <p>Loading</p>
-      {:then boards}
-        <div class="boards">
-          {#each boards as board}
-            <BoardSelect board={board} />
-          {/each}
-        </div>
-      {/await}
-    </div>
-  </div>
+  {/await}
 </div>
 
-<!-- {#await promise}
-  <span>Loading</span>
-{:then boards}
-  {#each boards as board}
-    <p>{board.description}</p>
-  {/each}
-{:catch error}
-  <span>{error.message}</span>
-{/await}
- -->
+<div class="bottom">
+  <input type="text" on:input={handle_search} on:click={handle_search_click} placeholder="Search..." />
+</div>

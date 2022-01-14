@@ -34,11 +34,15 @@
 </style>
 
 <script lang="ts">
-  import Board from "api/board";
+  import type Board from "../api/board";
   export let board: Board;
+
+  const goto_board = () => {
+    console.log(board.id);
+  };
 </script>
 
-<div class="board-select">
+<div class="board-select" on:click={goto_board}>
   <div class="shorthand">
     {board.shorthand}
   </div>
