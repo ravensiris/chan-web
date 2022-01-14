@@ -6,8 +6,14 @@ specifiers:
   '@sveltejs/vite-plugin-svelte': ^1.0.0-next.34
   '@testing-library/svelte': ^3.0.3
   '@tsconfig/svelte': ^3.0.0
+  '@types/debounce': ^1.2.1
+  '@types/format-unicorn': ^1.1.2
+  '@types/jest': ^27.4.0
   '@types/node': '*'
+  debounce: ^1.2.1
   eslint: ^8.6.0
+  format-unicorn: ^1.1.1
+  fuse.js: ^6.5.3
   jest: ^27.4.7
   npm-run-all: ^4.1.5
   prettier: ^2.5.1
@@ -24,6 +30,9 @@ specifiers:
   vite: ^2.7.10
 
 dependencies:
+  debounce: 1.2.1
+  format-unicorn: 1.1.1
+  fuse.js: 6.5.3
   redaxios: 0.4.1
   svelte-i18n: 3.3.13_svelte@3.45.0
 
@@ -33,6 +42,9 @@ devDependencies:
   '@sveltejs/vite-plugin-svelte': 1.0.0-next.34_svelte@3.45.0+vite@2.7.10
   '@testing-library/svelte': 3.0.3_svelte@3.45.0
   '@tsconfig/svelte': 3.0.0
+  '@types/debounce': 1.2.1
+  '@types/format-unicorn': 1.1.2
+  '@types/jest': 27.4.0
   '@types/node': 17.0.8
   eslint: 8.6.0
   jest: 27.4.7_ts-node@10.4.0
@@ -43,7 +55,7 @@ devDependencies:
   svelte: 3.45.0
   svelte-jester: 2.1.5_jest@27.4.7+svelte@3.45.0
   svelte-preprocess: 4.10.1_48bad082e0778598471b1e8f5f4d73f1
-  ts-jest: 27.1.2_jest@27.4.7+typescript@4.5.4
+  ts-jest: 27.1.2_9364f2ad0b7b67f00a4d081c662c6871
   ts-node: 10.4.0_faf01e1d5a40372a98081522dcafc186
   typescript: 4.5.4
   vite: 2.7.10_sass@1.47.0
@@ -863,6 +875,14 @@ packages:
       '@babel/types': 7.16.8
     dev: true
 
+  /@types/debounce/1.2.1:
+    resolution: {integrity: sha512-epMsEE85fi4lfmJUH/89/iV/LI+F5CvNIvmgs5g5jYFPfhO2S/ae8WSsLOKWdwtoaZw9Q2IhJ4tQ5tFCcS/4HA==}
+    dev: true
+
+  /@types/format-unicorn/1.1.2:
+    resolution: {integrity: sha512-RjsAjUsSu0J1OPjRnYXhN2g6zdP1mxgCZff0ZaKVjixuN92d7K7HBqXj+lTy+aUs28puGgRNFB1rme1uXTH3ew==}
+    dev: true
+
   /@types/graceful-fs/4.1.5:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
     dependencies:
@@ -883,6 +903,13 @@ packages:
     resolution: {integrity: sha512-c3mAZEuK0lvBp8tmuL74XRKn1+y2dcwOUpH7x4WrF6gk1GIgiluDRgMYQtw2OFcBvAJWlt6ASU3tSqxp0Uu0Aw==}
     dependencies:
       '@types/istanbul-lib-report': 3.0.0
+    dev: true
+
+  /@types/jest/27.4.0:
+    resolution: {integrity: sha512-gHl8XuC1RZ8H2j5sHv/JqsaxXkDDM9iDOgu0Wp8sjs4u/snb2PVehyWXJPr+ORA0RPpgw231mnutWI1+0hgjIQ==}
+    dependencies:
+      jest-diff: 27.4.6
+      pretty-format: 27.4.6
     dev: true
 
   /@types/json-schema/7.0.9:
@@ -1567,6 +1594,10 @@ packages:
       whatwg-url: 8.7.0
     dev: true
 
+  /debounce/1.2.1:
+    resolution: {integrity: sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==}
+    dev: false
+
   /debug/4.3.3:
     resolution: {integrity: sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==}
     engines: {node: '>=6.0'}
@@ -2199,6 +2230,10 @@ packages:
       mime-types: 2.1.34
     dev: true
 
+  /format-unicorn/1.1.1:
+    resolution: {integrity: sha1-UzQj+ca9smG/UI//VPLXqbJ6IlE=}
+    dev: false
+
   /fs-extra/9.1.0:
     resolution: {integrity: sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==}
     engines: {node: '>=10'}
@@ -2228,6 +2263,11 @@ packages:
   /functional-red-black-tree/1.0.1:
     resolution: {integrity: sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=}
     dev: true
+
+  /fuse.js/6.5.3:
+    resolution: {integrity: sha512-sA5etGE7yD/pOqivZRBvUBd/NaL2sjAu6QuSaFoe1H2BrJSkH/T/UXAJ8CdXdw7DvY3Hs8CXKYkDWX7RiP5KOg==}
+    engines: {node: '>=10'}
+    dev: false
 
   /gensync/1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
@@ -4323,7 +4363,7 @@ packages:
       punycode: 2.1.1
     dev: true
 
-  /ts-jest/27.1.2_jest@27.4.7+typescript@4.5.4:
+  /ts-jest/27.1.2_9364f2ad0b7b67f00a4d081c662c6871:
     resolution: {integrity: sha512-eSOiJOWq6Hhs6Khzk5wKC5sgWIXgXqOCiIl1+3lfnearu58Hj4QpE5tUhQcA3xtZrELbcvAGCsd6HB8OsaVaTA==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
@@ -4344,6 +4384,7 @@ packages:
       esbuild:
         optional: true
     dependencies:
+      '@types/jest': 27.4.0
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
       jest: 27.4.7_ts-node@10.4.0
