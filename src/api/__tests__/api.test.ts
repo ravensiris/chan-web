@@ -1,9 +1,5 @@
 import { BASE_URL, find_url, try_get_resource } from "../api";
 
-import BOARDS from "./boards.json";
-import Board from "../board";
-import redaxios from "redaxios";
-
 describe("find_url", () => {
   describe("/boards", () => {
     test("/", () => {
