@@ -1,5 +1,4 @@
-import type { APIErrorResponse } from "./error";
-import axios from "redaxios";
+import { try_get_resource } from "./api";
 
 export interface BoardInterface {
   id: string;
@@ -22,22 +21,10 @@ export default class Board implements BoardInterface {
   }
 
   static async fetch(id: string): Promise<Board> {
-    const response = await axios.get<BoardInterface>(
-      `https://chan-api-ri.herokuapp.com/boards/${id}`,
-    );
-
-    return new Board(response.data);
+    return await try_get_resource({ board: id });
   }
 
   static async fetchAll(): Promise<Board[]> {
-    const response = await axios.get<BoardInterface[]>(
-      "https://chan-api-ri.herokuapp.com/boards",
-    );
-
-    const data = response.data;
-
-    data.forEach((b) => new Board(b));
-
-    return data;
+    return await try_get_resource({ board: "" });
   }
 }
