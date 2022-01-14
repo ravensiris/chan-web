@@ -66,12 +66,17 @@
     search = (e.target as HTMLInputElement).value;
   }
 
-  function _toggle_fullscreen(){
-    if (window.innerHeight < 300){
-      document.documentElement.requestFullscreen().then(() => {
-        is_fullscreen = true;
-      }).catch(()=> {is_fullscreen=false;});
-    }else if(is_fullscreen){
+  function _toggle_fullscreen() {
+    if (window.innerHeight < 300) {
+      document.documentElement
+        .requestFullscreen()
+        .then(() => {
+          is_fullscreen = true;
+        })
+        .catch(() => {
+          is_fullscreen = false;
+        });
+    } else if (is_fullscreen) {
       document.exitFullscreen();
     }
   }
@@ -94,5 +99,10 @@
 </div>
 
 <div class="bottom">
-  <input type="text" on:input={handle_search} on:click={handle_search_click} placeholder="Search..." />
+  <input
+    type="text"
+    on:input={handle_search}
+    on:click={handle_search_click}
+    placeholder="Search..."
+  />
 </div>

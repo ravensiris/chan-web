@@ -2,10 +2,16 @@
   import './i18n';
   import routes from '../.routify/routes.default';
   import {Router} from '@roxi/routify';
+
+  // TODO: Make it work for non gh-pages hosts
+  const urlRewrite: UrlRewrite = {
+        toExternal: url => "/chan-web" + url,
+        toInternal: url => url.replace("/chan-web", "/")
+    }
 </script>
 
 <main>
-  <Router routes={routes} />
+  <Router {routes} {urlRewrite} />
 </main>
 
 <style lang="sass">
