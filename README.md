@@ -17,7 +17,7 @@
     <a href="https://github.com/ravensiris/chan-web"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/ravensiris/chan-web">View Demo</a>
+    <a href="https://ravensiris.github.io/chan-web/">View Demo</a>
     ·
     <a href="https://github.com/ravensiris/chan-web/issues">Report Bug</a>
     ·
