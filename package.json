@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "rm -rf build; vite build --base './'",
     "preview": "vite preview",
     "dev": "vite",
     "check": "svelte-check --tsconfig ./tsconfig.json",
