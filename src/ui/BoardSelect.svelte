@@ -1,21 +1,28 @@
 <style lang="sass">
+  @use "../themes/common" as *
+  $bg: $c-bright-light-blue
+  $fg: darken($bg, 80%)
+  $bg-hover: darken($bg, 5%)
+  $bg-shorthand: $c-bright-blue
+  $bg-shorthand-hover: darken($bg-shorthand, 5%)
+
   .board-select
     cursor: pointer
     display: flex
-    background-color: #DFE7FD
+    background-color: $bg
     font-size: 2rem
     padding: .3em
     border-radius: 1rem
     transition: background-color 100ms
-    color: darken(#DFE7FD, 80%)
+    color: $fg
     &:hover
-      background-color: darken(#DFE7FD, 5%)
+      background-color: $bg-hover
     &:hover .shorthand
-      background-color: darken(#CDDAFD, 5%)
+      background-color: $bg-shorthand-hover
     
   .shorthand
     display: flex
-    background-color: #CDDAFD
+    background-color: $bg-shorthand
     width: 2em
     height: 2em
     justify-content: center

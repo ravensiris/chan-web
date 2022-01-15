@@ -1,4 +1,5 @@
 <style lang="sass">
+  @use "../themes/common" as *
   .boards
     display: grid
     column-gap: .5em
@@ -25,11 +26,11 @@
     align-self: center
     margin: .5em 0
     border: .1em solid transparent
-    background-color: #EAE4E9
+    background-color: $input-background
     border-radius: .3em
     outline: none
     &:focus
-      border-color: darken(#CDDAFD, 30%)
+      border-color: $input-border-focus 
 
   .bottom
     display: flex
