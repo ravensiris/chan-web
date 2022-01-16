@@ -38,22 +38,21 @@
     align-items: center
     margin-left: .3em
 
+  a
+    text-decoration: none
 </style>
 
 <script lang="ts">
   import type Board from "../api/board";
   export let board: Board;
-
-  const goto_board = () => {
-    console.log(board.id);
-  };
+  const href = `./${board.id}`;
 </script>
 
-<div class="board-select" on:click={goto_board}>
+<a class="board-select" {href}>
   <div class="shorthand">
     {board.shorthand}
   </div>
   <div class="body">
     {board.name}
   </div>
-</div>
+</a>
