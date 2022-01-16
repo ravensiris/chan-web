@@ -46,21 +46,28 @@ class Endpoint {
       segment.toString(),
     );
 
-    return segments.every((segment) => segment in params);
+    const keys = Object.keys(params);
+
+    return segments.length === keys.length && keys.every((key) => segments.includes(key));
   }
 
   public format(params: APIParams): string {
     return this.relative_url.formatUnicorn(params);
   }
+
+  public toString(): string {
+    return this.relative_url;
+  }
 }
 
-const ENDPOINTS = ["/boards/{board}", "/boards/{board}/threads/{thread}"].map(
+const ENDPOINTS = ["/boards/{board}", "/boards/{board}/threads/{thread}", "/boards/{board}/threads/{thread}/replies/{reply}"].map(
   (endpoint) => new Endpoint(endpoint),
 );
 
 export interface APIParams {
   board?: string;
   thread?: string;
+  reply?: string;
 }
 
 /**
@@ -69,7 +76,7 @@ export interface APIParams {
 export function find_url(params: APIParams): URL {
   const endpoint = ENDPOINTS.find((_endpoint) => _endpoint.matching(params));
 
-  if (!endpoint) {
+  if (!endpoint || endpoint.toString() === "") {
     throw new Error("No match");
   }
 
