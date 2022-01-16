@@ -6,7 +6,7 @@
   // TODO: Make it work for non gh-pages hosts
   const urlRewrite: UrlRewrite = {
         toExternal: url => "/chan-web" + url,
-        toInternal: url => url.replace("/chan-web", "/")
+        toInternal: url => url.replace("/chan-web", "")
     }
 </script>
 
