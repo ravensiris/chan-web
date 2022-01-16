@@ -10,11 +10,11 @@ export interface ThreadInterface {
 }
 
 export default class Thread implements ThreadInterface {
-    id: string;
-    board_id: string;
-    created_at: string;
-    updated_at: string;
-    op: Reply;
+  id: string;
+  board_id: string;
+  created_at: string;
+  updated_at: string;
+  op: Reply;
   constructor(data: ThreadInterface) {
     this.id = data.id;
     this.board_id = data.board_id;
@@ -24,7 +24,7 @@ export default class Thread implements ThreadInterface {
   }
 
   static async fetch(board_id: string, id: string): Promise<Thread> {
-    return await try_get_resource({ board: board_id, thread: id});
+    return await try_get_resource({ board: board_id, thread: id });
   }
 
   static async fetchAll(board_id: string): Promise<Thread[]> {
