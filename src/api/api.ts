@@ -48,7 +48,10 @@ class Endpoint {
 
     const keys = Object.keys(params);
 
-    return segments.length === keys.length && keys.every((key) => segments.includes(key));
+    return (
+      segments.length === keys.length &&
+      keys.every((key) => segments.includes(key))
+    );
   }
 
   public format(params: APIParams): string {
@@ -60,9 +63,11 @@ class Endpoint {
   }
 }
 
-const ENDPOINTS = ["/boards/{board}", "/boards/{board}/threads/{thread}", "/boards/{board}/threads/{thread}/replies/{reply}"].map(
-  (endpoint) => new Endpoint(endpoint),
-);
+const ENDPOINTS = [
+  "/boards/{board}",
+  "/boards/{board}/threads/{thread}",
+  "/boards/{board}/threads/{thread}/replies/{reply}",
+].map((endpoint) => new Endpoint(endpoint));
 
 export interface APIParams {
   board?: string;

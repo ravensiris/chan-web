@@ -16,13 +16,15 @@ describe("find_url", () => {
 
     describe("/test/threads", () => {
       test("/", () => {
-        expect(find_url({ board: "test", thread: "" }).toString()).toStrictEqual(
-          new URL("/boards/test/threads/", BASE_URL).toString(),
-        );
+        expect(
+          find_url({ board: "test", thread: "" }).toString(),
+        ).toStrictEqual(new URL("/boards/test/threads/", BASE_URL).toString());
       });
 
       test("/123", () => {
-        expect(find_url({ board: "test", thread: "123" }).toString()).toStrictEqual(
+        expect(
+          find_url({ board: "test", thread: "123" }).toString(),
+        ).toStrictEqual(
           new URL("/boards/test/threads/123", BASE_URL).toString(),
         );
       });

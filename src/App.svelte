@@ -10,9 +10,7 @@
     }
 </script>
 
-<main>
-  <Router {routes} {urlRewrite} />
-</main>
+<Router {routes} {urlRewrite} />
 
 <style lang="sass">
   @use './themes/common' as *
@@ -30,4 +28,15 @@
     :global(html, body)
       background-color: $dark-background
       color: $dark-foreground
+  :global(input[type=text]), :global(textarea)
+    font-size: 1.5rem
+    width: 100%
+    box-sizing: border-box
+    padding: .5em
+    border: .1em solid transparent
+    background-color: $input-background
+    border-radius: .3em
+    outline: none
+    &:focus
+      border-color: $input-border-focus 
 </style>

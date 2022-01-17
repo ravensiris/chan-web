@@ -48,7 +48,7 @@
   const href = `./${board.id}`;
 </script>
 
-<a class="board-select" {href}>
+<a class="board-select" href={href}>
   <div class="shorthand">
     {board.shorthand}
   </div>
