@@ -19,7 +19,7 @@ let title = '';
 let body = '';
 
 const create = () => {
-    Thread.create($params.board, {
+    Thread.reply($params.thread, $params.board, {
         title,
         body
     });

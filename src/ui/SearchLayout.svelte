@@ -2,8 +2,8 @@
     footer
         position: fixed
         bottom: 0
-        width: 100%
         margin-bottom: .5em
+        width: 100%
     .actions
         display: flex
         margin: .5em
@@ -15,6 +15,8 @@
         justify-content: center
         align-items: center
         margin-bottom: 6em
+    .wrapper
+      width: 100%
 </style>
 
 <script lang="ts">

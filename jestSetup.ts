@@ -1,1 +1,1 @@
-import './src/i18n';
+import "./src/i18n";

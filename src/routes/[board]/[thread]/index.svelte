@@ -1,27 +1,27 @@
 <script lang="ts">
-    import {params, url} from '@roxi/routify';
+    import {goto, params, url} from '@roxi/routify';
     import SearchLayout from '$/ui/SearchLayout.svelte';
-    import Thread from '$/api/thread';
+    import Reply from '$/api/reply';
     import Fuse from "fuse.js";
 
     // TODO: Dry it up
-    let fuse: Fuse<Thread>;
-    let promise = Thread.fetchAll($params.board).then((bs) => {
-        fuse = new Fuse(bs, { keys: ["op.title", "op.body"] });
-        return bs;
+    let fuse: Fuse<Reply>;
+    let promise = Reply.fetchAll($params.board, $params.thread).then((rs) => {
+        fuse = new Fuse(rs, { keys: ["op.title", "op.body"] });
+        return rs;
     });
     let search = '';
 
-    $: filtered = promise.then((bs) => {
+    $: filtered = promise.then((rs) => {
         if (!search.trim()) {
-            return bs;
+            return rs;
         }
         return fuse.search(search).map((r) => r.item);
     });
 </script>
 
 <style lang="sass">
-    @use 'src/themes/common' as *
+    @use '../../../themes/common' as *
     .img-wrap
         display: flex
         justify-content: center
@@ -70,23 +70,23 @@
 <SearchLayout bind:search={search}>
     {#await filtered}
     <p>Loading</p>
-    {:then threads}
+    {:then replies}
         <div class="replies">
-            {#each threads as thread}
-                    <div class="reply" on:click={() => {window.open(`${thread.board_id}/${thread.id}`, "_blank")}}>
-                        {#if !thread.op.image_id}
+            {#each replies as reply}
+                    <div class="reply">
+                        {#if !reply.image_id}
                             <div class="img-wrap">
                                 <img class="unlock" src="https://via.placeholder.com/2560x1440" />
                             </div>
                         {/if}
-                        <h1>{thread.op.title}</h1>
-                        <pre>{thread.op.body}</pre>
+                        <h1>{reply.title}</h1>
+                        <pre>{reply.body}</pre>
                     </div>
             {/each} 
         </div>
     {/await}
     <svelte:fragment slot="actions">
-        <a href={$url('/[board]/new')}>
+        <a href={$url('/[board]/[thread]/new')}>
             <span>New</span>
         </a>
     </svelte:fragment>

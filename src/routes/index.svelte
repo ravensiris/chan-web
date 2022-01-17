@@ -9,9 +9,9 @@
 </style>
 
 <script lang="ts">
-  import SearchLayout from "../ui/SearchLayout.svelte";
-  import BoardSelect from "../ui/BoardSelect.svelte";
-  import Board from "../api/board";
+  import SearchLayout from "$/ui/SearchLayout.svelte";
+  import BoardSelect from "$/ui/BoardSelect.svelte";
+  import Board from "$/api/board";
   import Fuse from "fuse.js";
 
   let fuse: Fuse<Board>;

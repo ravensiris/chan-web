@@ -1,5 +1,7 @@
+import { find_url, try_get_resource } from "./api";
+
 import Reply from "./reply";
-import { try_get_resource } from "./api";
+import axios from "redaxios";
 
 export interface ThreadInterface {
   id: string;
@@ -7,6 +9,11 @@ export interface ThreadInterface {
   created_at: string;
   updated_at: string;
   op: Reply;
+}
+
+export interface ReplyPostInterface {
+  title: string;
+  body: string;
 }
 
 export default class Thread implements ThreadInterface {
@@ -29,5 +36,30 @@ export default class Thread implements ThreadInterface {
 
   static async fetchAll(board_id: string): Promise<Thread[]> {
     return await try_get_resource({ board: board_id, thread: "" });
+  }
+
+  static async create(
+    board_id: string,
+    op: ReplyPostInterface,
+  ): Promise<ReplyPostInterface> {
+    const response = await axios.post<ReplyPostInterface>(
+      find_url({ board: board_id, thread: "" }).toString(),
+      op,
+    );
+
+    return response.data;
+  }
+
+  static async reply(
+    id: string,
+    board_id: string,
+    reply: ReplyPostInterface,
+  ): Promise<ReplyPostInterface> {
+    const response = await axios.post<ReplyPostInterface>(
+      find_url({ board: board_id, thread: id, reply: "" }).toString(),
+      reply,
+    );
+
+    return response.data;
   }
 }
