@@ -1,8 +1,9 @@
 <script lang="ts">
-    import {params, url} from '@roxi/routify';
+    import {goto, params, url} from '@roxi/routify';
     import SearchLayout from '$/ui/SearchLayout.svelte';
     import Thread from '$/api/thread';
     import Fuse from "fuse.js";
+    import { find_url } from '$/api/api';
 
     // TODO: Dry it up
     let fuse: Fuse<Thread>;
@@ -73,10 +74,11 @@
     {:then threads}
         <div class="replies">
             {#each threads as thread}
-                    <div class="reply" on:click={() => {window.open(`${thread.board_id}/${thread.id}`, "_blank")}}>
-                        {#if !thread.op.image_id}
+                    <div class="reply" on:click={() => {$goto('/[board]/[thread]', {board: thread.board_id, thread: thread.id})}}>
+                        {#if thread.op.image && thread.op.image.mime}
                             <div class="img-wrap">
-                                <img class="unlock" src="https://via.placeholder.com/2560x1440" />
+                                <!-- No idea why url property won't work...-->
+                                <img src={find_url({image: thread.op.image.id})} />
                             </div>
                         {/if}
                         <h1>{thread.op.title}</h1>

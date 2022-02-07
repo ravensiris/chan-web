@@ -1,28 +1,24 @@
-<main>
-    <label for="title">Title:</label>
-    <br>
-    <input bind:value={title} type="text" name="title">
-    <br>
-    <label for="body">Body:</label>
-    <br>
-    <textarea bind:value={body} name="body" cols="50" rows="10"></textarea>
-    <br>
-    <button on:click={create}>Create</button>
-</main>
+<ReplyLayout bind:files={files} page_title="Create a thread" post_method={on_post} success_method={on_success}></ReplyLayout>
 
 <script lang="ts">
-import { params } from "@roxi/routify";
+import { params, goto} from "@roxi/routify";
+import ReplyLayout from "$/ui/ReplyLayout.svelte";
 
-import Thread from "$/api/thread";
+import Thread, { ReplyPostInterface } from "$/api/thread";
 
-let title = '';
-let body = '';
+let files: FileList | null | undefined;
 
-const create = () => {
-    Thread.create($params.board, {
-        title,
-        body
-    });
+const on_post = (reply: ReplyPostInterface) => {
+    return Thread.create($params.board, reply);
 };
+
+const on_success = (result: Thread) => {
+    if (result.op.image && files){
+        result.op.image.send(files[0]).then(() => {
+                $goto('/[board]/[thread]', {thread: result.id});
+            }
+        );
+    }
+}
 
 </script>

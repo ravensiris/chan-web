@@ -3,6 +3,7 @@
     import SearchLayout from '$/ui/SearchLayout.svelte';
     import Reply from '$/api/reply';
     import Fuse from "fuse.js";
+    import { find_url } from '$/api/api';
 
     // TODO: Dry it up
     let fuse: Fuse<Reply>;
@@ -74,9 +75,9 @@
         <div class="replies">
             {#each replies as reply}
                     <div class="reply">
-                        {#if !reply.image_id}
+                        {#if reply.image}
                             <div class="img-wrap">
-                                <img class="unlock" src="https://via.placeholder.com/2560x1440" />
+                                <img src={find_url({image: reply.image.id})} />
                             </div>
                         {/if}
                         <h1>{reply.title}</h1>
@@ -87,7 +88,7 @@
     {/await}
     <svelte:fragment slot="actions">
         <a href={$url('/[board]/[thread]/new')}>
-            <span>New</span>
+            <span>Reply</span>
         </a>
     </svelte:fragment>
 </SearchLayout>
