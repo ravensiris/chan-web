@@ -67,12 +67,14 @@ const ENDPOINTS = [
   "/boards/{board}",
   "/boards/{board}/threads/{thread}",
   "/boards/{board}/threads/{thread}/replies/{reply}",
+  "/images/{image}",
 ].map((endpoint) => new Endpoint(endpoint));
 
 export interface APIParams {
   board?: string;
   thread?: string;
   reply?: string;
+  image?: string;
 }
 
 /**
