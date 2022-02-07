@@ -139,8 +139,8 @@ pnpm lint
 - [x] Threads
   - [x] Create threads
   - [x] Reply to threads
-- [ ] Images
-  - [ ] Create replies with images
+- [x] Images
+  - [x] Create replies with images
 
 See the [open issues](https://github.com/ravensiris/chan-web/issues) for a full list of proposed features (and known issues).
 
