@@ -41,7 +41,9 @@
     "format-unicorn": "^1.1.1",
     "fuse.js": "^6.5.3",
     "redaxios": "^0.4.1",
-    "routify:next": "link:@roxy/routify:next",
     "svelte-i18n": "^3.3.13"
-  }
+  },
+    "engines": {
+        "node": "16.x"
+    }
 }
