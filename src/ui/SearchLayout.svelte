@@ -20,6 +20,8 @@
 </style>
 
 <script lang="ts">
+import { goto } from "@roxi/routify";
+
   import { debounce } from "debounce";
 
   import Search from "./Search.svelte";
@@ -52,6 +54,7 @@
   <footer>
     <div class="actions">
       <Search bind:value={search} on_click={search_click} />
+      <button on:click={$goto("/")}>Home</button>
       <slot name="actions" />
     </div>
   </footer>
